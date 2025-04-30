@@ -1,0 +1,16 @@
+<div class="card mx-auto shadow" style="width: 30rem;">
+  <img [src]="noticias[indice].imagen" class="card-img-top" alt="Imagen de noticia">
+  <div class="card-body">
+      <h5 class="card-title">{{ noticias[indice].titulo }}</h5>
+      <p class="card-text">{{ noticias[indice].contenido }}</p>
+      <div class="d-flex justify-content-between mt-3">
+          <button class="btn btn-outline-primary" (click)="anterior()" [disabled]="indice === 0">
+              Anterior
+          </button>
+          <button class="btn btn-outline-primary" (click)="siguiente()" [disabled]="indice === noticias.length - 1">
+              Siguiente
+          </button>
+      </div>
+  </div>
+</div>
+  
