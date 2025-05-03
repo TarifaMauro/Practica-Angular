@@ -10,15 +10,15 @@ export class Punto1Component {
   noticias = [
     {titulo: 'Noticia 1', 
     contenido: 'Contenido de la noticia 1',
-    imagen: 'assets/img/noticia1.jpg'
+    imagen: 'assets/img/noticia1.jpeg'
     },
     {titulo: 'Noticia 2',
     contenido: 'Contenido de la noticia 2',
-    imagen: 'assets/img/noticia2.jpg'
+    imagen: 'assets/img/noticia2.jpeg'
     },
     {titulo: 'Noticia 3',
     contenido: 'Contenido de la noticia 3',
-    imagen: 'assets/img/noticia3.jpg'
+    imagen: 'assets/img/noticia3.jpeg'
     }
   ]
 

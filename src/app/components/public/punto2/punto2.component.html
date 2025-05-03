@@ -1,0 +1,51 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let producto of productos">
+      <div class="card h-100">
+        <img [src]="producto.img" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text">{{ producto.descripcion }}</p>
+          <p class="fw-bold">$ {{ producto.precio | number:'1.2-2' }}</p>
+          <button class="btn btn-primary" (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Botón para abrir el modal -->
+  <div class="text-center mt-4">
+    <button class="btn btn-success bi bi-cart" data-bs-toggle="modal" data-bs-target="#carritoModal" >
+      Ver Carrito
+    </button>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carritoModalLabel">Carrito</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="carrito.length === 0">No hay productos en el carrito.</div>
+            <ul *ngIf="carrito.length > 0" class="list-group">
+                <li *ngFor="let prod of carrito" class="list-group-item d-flex align-items-center">
+                <img [src]="prod.img" alt="Imagen" width="60" height="60" class="me-3 rounded">
+                <div class="flex-grow-1">
+                    <div class="fw-bold">{{ prod.nombre }}</div>
+                    <div class="text-muted">$ {{ prod.precio | number:'1.2-2' }}</div>
+                </div>
+                </li>
+            </ul>
+          <div class="mt-3 fw-bold" *ngIf="carrito.length > 0">
+            Total: $ {{ total | number:'1.2-2' }}
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
