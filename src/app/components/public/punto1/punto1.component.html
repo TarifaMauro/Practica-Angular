@@ -1,16 +1,23 @@
-<div class="mx-auto shadow" style="width: 30rem;">
-  <img [src]="noticias[indice].imagen" class="card-img-top" alt="Imagen de noticia">
-  <div class="card-body">
-      <h5 class="card-title">{{ noticias[indice].titulo }}</h5>
-      <p class="card-text">{{ noticias[indice].contenido }}</p>
-      <div class="d-flex justify-content-between mt-3">
-          <button class="btn btn-outline-primary" (click)="anterior()" [disabled]="indice === 0">
-              Anterior
-          </button>
-          <button class="btn btn-outline-primary" (click)="siguiente()" [disabled]="indice === noticias.length - 1">
-              Siguiente
-          </button>
-      </div>
-  </div>
+<div class="container mt-5">
+    <div class="mx-auto shadow-lg rounded" style="width: 30rem; background-color: #f8f9fa;">
+        <div class="card-header text-center bg-primary text-white rounded-top">
+            <h2>Sección Noticias</h2>
+            <h5 class="card-title">Noticias Disponibles</h5>
+        </div>
+        <img [src]="noticias[indice].imagen" class="card-img-top rounded-bottom" alt="Imagen de noticia">
+        <div class="card-body">
+            <h5 class="card-title text-primary">{{ noticias[indice].titulo }}</h5>
+            <p class="card-text text-muted">{{ noticias[indice].contenido }}</p>
+            <div class="d-flex justify-content-between mt-3">
+
+                <button class="btn btn-outline-primary" (click)="anterior()" [disabled]="indice === 0">
+                    Anterior
+                </button>
+                <button class="btn btn-outline-primary" (click)="siguiente()" [disabled]="indice === noticias.length - 1">
+                    Siguiente
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
   
