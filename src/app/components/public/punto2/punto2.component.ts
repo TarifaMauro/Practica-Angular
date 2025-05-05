@@ -12,19 +12,19 @@ export class Punto2Component {
     {
       nombre: 'Notebook Asus 13L',
       descripcion: 'Disco 40GB, 15 pulgadas',
-      img: 'assets/notebook13l.jpg',
+      img: 'assets/img/producto0.jpeg',
       precio: 45.5
     },
     {
       nombre: 'Monitor LG 14',
       descripcion: 'Monitor HD 14 pulgadas',
-      img: 'assets/producto02.jpg',
+      img: 'assets/img/producto1.jpeg',
       precio: 99
     },
     {
       nombre: 'Mouse Inalámbrico',
       descripcion: 'Mouse óptico inalámbrico',
-      img: 'assets/producto03.jpg',
+      img: 'assets/img/producto2.jpeg',
       precio: 15
     }
   ];

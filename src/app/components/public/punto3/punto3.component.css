@@ -1,0 +1,22 @@
+.container {
+    max-width: 500px;
+  }
+  h3 span {
+    font-size: 2rem;
+    margin: 0 5px;
+    border-bottom: 2px solid #333;
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+  }
+  .ahorcado-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .ahorcado-imagen {
+    width: 200px;   /* ajusta este tamaño a lo que necesites */
+    height: auto;  /* mantiene la proporción */
+  }

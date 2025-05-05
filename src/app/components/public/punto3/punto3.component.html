@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <h2 class="text-center text-primary mb-4 fw-bold">Juego del Ahorcado</h2>
+
+  <!-- Contenedor de la imagen del ahorcado -->
+  <div class="ahorcado-contenedor text-center mb-4">
+    <img [src]="imagenAhorcado" alt="Ahorcado" class="ahorcado-imagen shadow-lg" style="max-width: 300px; border-radius: 10px;">
+  </div>
+
+  <h4 class="text-center text-success mb-4">
+    <span class="badge bg-success p-2 rounded-pill">Categoría: {{ categoriaSeleccionada }}</span>
+  </h4>
+
+  <div class="text-center mb-4">
+    <h3>
+      <span *ngFor="let letra of palabraOculta" class="border-bottom border-primary px-2 fs-4 fw-bold text-dark rounded">{{ letra }}</span>
+    </h3>
+  </div>
+
+  <div class="text-center mb-4">
+    <input type="text" maxlength="1" #inputLetra class="form-control d-inline w-auto text-center fs-5 rounded-pill shadow-sm" 
+           (keyup.enter)="intentar(inputLetra.value); inputLetra.value=''" 
+           placeholder="Ingresa una letra">
+    <button class="btn btn-primary ms-2 px-4 fs-5 rounded-pill shadow-sm" 
+            (click)="intentar(inputLetra.value); inputLetra.value=''">
+      Probar
+    </button>
+  </div>
+
+  <div class="text-center mb-4">
+    <p class="text-muted fs-5">Letras ingresadas: 
+      <span class="fw-bold text-dark">{{ letrasIngresadas.join(', ') }}</span>
+    </p>
+    <p class="fw-bold fs-5">
+      Intentos restantes: 
+      <span class="text-danger">{{ intentosRestantes }}</span>
+    </p>
+  </div>
+
+  <div class="text-center mb-4" *ngIf="mensaje">
+    <h4 class="text-warning fw-bold">{{ mensaje }}</h4>
+    <button class="btn btn-success mt-3 px-4 fs-5 rounded-pill shadow-sm" (click)="iniciarJuego()">Jugar de nuevo</button>
+  </div>
+</div>
