@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <h2 class="text-center text-primary mb-4">Venta de Pasajes</h2>
+  <form>
+    <div class="mb-3">
+      <label for="dni" class="form-label">DNI</label>
+      <input type="text" id="dni" class="form-control" [(ngModel)]="boleto.dni" name="dni" required>
+    </div>
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio Base</label>
+      <input type="number" id="precio" class="form-control" [(ngModel)]="boleto.precio" name="precio" (input)="calcularPrecio()" required>
+    </div>
+    <div class="mb-3">
+      <label for="categoria" class="form-label">Categoría del Turista</label>
+      <select id="categoria" class="form-select" [(ngModel)]="boleto.categoriaTurista" name="categoriaTurista" (change)="calcularPrecio()" required>
+        <option [ngValue]="0" disabled selected>Seleccione una categoría</option>
+        <option [ngValue]="1">Menor</option>
+        <option [ngValue]="2">Adulto</option>
+        <option [ngValue]="3">Jubilado</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" class="form-control" [(ngModel)]="boleto.email" name="email" required>
+    </div>
+    <div class="mb-3" *ngIf="boleto.precio && boleto.categoriaTurista">
+      <label class="form-label">Precio Total:</label>
+      <p class="fw-bold text-success">{{ precioTotal | currency }}</p>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="registrarBoleto()">{{ modoEdicion ? 'Actualizar' : 'Registrar' }}</button>
+  </form>
+
+  <hr class="my-4">
+
+  <h3 class="text-center text-primary mb-4">Lista de Boletos Vendidos</h3>
+  
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>DNI</th>
+          <th>Precio</th>
+          <th>Categoría</th>
+          <th>Email</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let boleto of boletos">
+          <td>{{ boleto.dni }}</td>
+          <td>{{ boleto.precio | currency }}</td>
+          <td>{{ obtenerNombreCategoria(boleto.categoriaTurista) }}</td>
+          <td>{{ boleto.email }}</td>
+          <td>{{ boleto.fechaCompra | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2" (click)="prepararEdicion(boleto.id)">Modificar</button>
+            <button class="btn btn-sm btn-danger" (click)="eliminarBoleto(boleto.id)">Eliminar</button>
+          </td>
+        </tr>
+        <tr *ngIf="boletos.length === 0">
+          <td colspan="5" class="text-center">No hay boletos registrados</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="my-4">
+
+  <h3 class="text-center text-primary mb-4">Resumen de Ventas</h3>
+  <div class="card">
+    <div class="card-body">
+      <p><strong>Menores:</strong> {{ resumen.menor }}</p>
+      <p><strong>Adultos:</strong> {{ resumen.adulto }}</p>
+      <p><strong>Jubilados:</strong> {{ resumen.jubilado }}</p>
+      <p class="fw-bold text-success">Total General: {{ resumen.total | currency }}</p>
+    </div>
+  </div>
+</div>
