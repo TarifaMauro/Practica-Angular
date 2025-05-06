@@ -1,15 +1,18 @@
 <div class="container text-center mt-5">
   <h1>Bienvenido a la Práctica Angular</h1>
   <p>Selecciona una sección para continuar:</p>
-  <div class="row mt-4">
-    <div class="col-md-4">
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-3 mb-3">
       <a [routerLink]="['punto1']" class="btn btn-primary btn-lg w-100">Punto 1: Noticias</a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3 mb-3">
       <a [routerLink]="['punto2']" class="btn btn-secondary btn-lg w-100">Punto 2: Productos</a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3 mb-3">
       <a [routerLink]="['punto3']" class="btn btn-success btn-lg w-100">Punto 3: Ahorcado</a>
+    </div>
+    <div class="col-md-3 mb-3">
+      <a [routerLink]="['venta-boletos']" class="btn btn-danger btn-lg w-100">Venta de Boletos</a>
     </div>
   </div>
 </div>
